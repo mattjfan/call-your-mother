@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Call Your Mother</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="user_fragment">User Fragment</string>
+    <string name="manage_fragment">Manage Fragment</string>
+    <string name="schedule_fragment">Schedule Fragment</string>
+    <string name="to_user">To User Fragment</string>
+    <string name="to_manage">To Manage Fragment</string>
 </resources>

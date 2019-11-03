@@ -1,11 +1,24 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/materialWhite</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/materialWhite</item>
+    </style>
+
+    <style name="headerFontStyle">
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:textColor">@color/materialBlack</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
 </resources>
