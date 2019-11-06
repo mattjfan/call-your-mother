@@ -1,11 +1,14 @@
-package com.example.callyourmother
+package com.example.callyourmother.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
+import com.example.callyourmother.R
 
+/**
+ * SplashScreen - entry point for the application which starts with the splash screen
+ */
 class SplashScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

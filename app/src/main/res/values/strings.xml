@@ -1,9 +1,15 @@
 <resources>
+    <!-- App, Fragment, and Activity Names -->
     <string name="app_name">Call Your Mother</string>
     <string name="home_fragment">Home Fragment</string>
     <string name="user_fragment">User Fragment</string>
     <string name="manage_fragment">Manage Fragment</string>
     <string name="schedule_fragment">Schedule Fragment</string>
+    <string name="debug_frag">Debug Fragment</string>
+    <!-- Button Names -->
     <string name="to_user">To User Fragment</string>
     <string name="to_manage">To Manage Fragment</string>
+    <string name="to_home">To Home Fragment</string>
+    <!-- Notify Names-->
+    <string name="requires_permission">Grant permission to access contact book</string>
 </resources>

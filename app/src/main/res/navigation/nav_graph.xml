@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/debugFragment">
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.callyourmother.HomeFragment"
+        android:name="com.example.callyourmother.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -27,12 +27,39 @@
     </fragment>
     <fragment
         android:id="@+id/userFragment"
-        android:name="com.example.callyourmother.UserFragment"
+        android:name="com.example.callyourmother.fragments.UserFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" />
     <fragment
         android:id="@+id/manageScheduleFragment"
-        android:name="com.example.callyourmother.ManageScheduleFragment"
+        android:name="com.example.callyourmother.fragments.ManageScheduleFragment"
         android:label="fragment_manage_schedule"
         tools:layout="@layout/fragment_manage_schedule" />
+    <fragment
+        android:id="@+id/debugFragment"
+        android:name="com.example.callyourmother.fragments.DebugFragment"
+        android:label="fragment_debug"
+        tools:layout="@layout/fragment_debug" >
+        <action
+            android:id="@+id/action_debugFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_in_left_anim"
+            app:exitAnim="@anim/slide_out_left_anim"
+            app:popEnterAnim="@anim/slide_in_right_anim"
+            app:popExitAnim="@anim/slide_out_right_anim" />
+        <action
+            android:id="@+id/action_debugFragment_to_userFragment"
+            app:destination="@id/userFragment"
+            app:enterAnim="@anim/slide_in_left_anim"
+            app:exitAnim="@anim/slide_out_left_anim"
+            app:popEnterAnim="@anim/slide_in_right_anim"
+            app:popExitAnim="@anim/slide_out_right_anim" />
+        <action
+            android:id="@+id/action_debugFragment_to_manageScheduleFragment"
+            app:destination="@id/manageScheduleFragment"
+            app:enterAnim="@anim/slide_in_left_anim"
+            app:exitAnim="@anim/slide_out_left_anim"
+            app:popEnterAnim="@anim/slide_in_right_anim"
+            app:popExitAnim="@anim/slide_out_right_anim" />
+    </fragment>
 </navigation>
