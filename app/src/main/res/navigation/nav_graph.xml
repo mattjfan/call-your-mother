@@ -29,7 +29,18 @@
         android:id="@+id/userFragment"
         android:name="com.example.callyourmother.fragments.UserFragment"
         android:label="fragment_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <argument
+            android:name="contactName"
+            app:argType="string" />
+        <argument
+            android:name="contactNumber"
+            app:argType="string" />
+        <argument
+            android:name="contactPhotoUriStr"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/manageScheduleFragment"
         android:name="com.example.callyourmother.fragments.ManageScheduleFragment"

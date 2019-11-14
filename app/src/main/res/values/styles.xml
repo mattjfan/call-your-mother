@@ -21,4 +21,11 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="subtitleFontStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/materialBlack</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>

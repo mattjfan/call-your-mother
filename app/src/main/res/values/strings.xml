@@ -10,6 +10,11 @@
     <string name="to_user">To User Fragment</string>
     <string name="to_manage">To Manage Fragment</string>
     <string name="to_home">To Home Fragment</string>
+    <!-- Hints -->
+    <string name="contact_name_hint">Contact Name:</string>
+    <string name="contact_number_hint">Contact Number:</string>
+    <!-- Descriptor -->
+    <string name="contact_photo_desc">Contact\'s Picture or Initials</string>
     <!-- Notify Names-->
     <string name="requires_permission">Grant permission to access contact book</string>
 </resources>

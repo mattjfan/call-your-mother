@@ -7,14 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".fragments.UserFragment">
 
+    <ImageView
+        android:id="@+id/contact_photo_iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="@string/contact_photo_desc"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.192" />
+
     <TextView
-        android:id="@+id/user_fragment_tv"
+        android:id="@+id/contact_name_tv"
+        style="@style/subtitleFontStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/user_fragment"
-        android:textColor="@color/materialBlack"
+        android:fontFamily="@font/roboto"
+        android:text="@string/contact_name_hint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/contact_photo_iv"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/contact_number_tv"
+        style="@style/subtitleFontStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_number_hint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contact_name_tv"
+        app:layout_constraintVertical_bias="0.13" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,16 +4,24 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.ImageDecoder
+import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.example.callyourmother.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.net.URI
 
 /**
  * HomeFragment - this is the Fragment that lists out the current contacts you want to keep track of
@@ -23,7 +31,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment() {
 
     private lateinit var addContactFab: FloatingActionButton
-
+    private lateinit var navController: NavController
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -32,6 +40,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        navController = view.findNavController()
         addContactFab = add_contact_fab
         add_contact_fab.setOnClickListener { getContact() }
     }
@@ -53,22 +62,36 @@ class HomeFragment : Fragment() {
 
         if (resultCode == Activity.RESULT_OK && requestCode == PICK_CONTACT_REQUEST) {
             val contactUri = data?.data ?: return
-            val projection = arrayOf(FORMATTED_NAME, FORMATTED_NUMBER)
+            val projection = arrayOf(FORMATTED_NAME, FORMATTED_NUMBER, FORMATTED_PHOTO)
             val cr = activity?.contentResolver
             val cursor = cr?.query(contactUri, projection, null, null)
 
             if (cursor != null && cursor.moveToFirst()) {
                 val contactNameColIdx = cursor.getColumnIndex(FORMATTED_NAME)
+                val contactPhotoURIColIdx = cursor.getColumnIndex(FORMATTED_PHOTO)
                 val phoneNumberColIdx = cursor.getColumnIndex(FORMATTED_NUMBER)
                 val contactName = cursor.getString(contactNameColIdx)
-                val phoneNumber = cursor.getString(phoneNumberColIdx)
+                val contactNumber = cursor.getString(phoneNumberColIdx)
+                val contactPhotoURIStr: String? = cursor.getString(contactPhotoURIColIdx)
 
-                // contactName and phoneNumber are strings which have the contact's name and phone number
-                // which comes from after selecting a contact. Tested to be working
+                cursor.close()
+                toUserFragment(contactName, contactNumber, contactPhotoURIStr)
             }
 
             cursor?.close()
         }
+    }
+
+    /**
+     * toUserFragment - after successfully selecting a new contact, it will navigate to the UserFragment
+     *                to set the frequency and other settings
+     * @param contactName - the contact name which was selected
+     * @param contactNumber - the contact number which was selected
+     * @param contactPhotoURIStr - the String of the URI of the contact's photo (if it exists)
+     */
+    private fun toUserFragment(contactName: String, contactNumber: String, contactPhotoURIStr: String?) {
+        val action = HomeFragmentDirections.actionHomeFragmentToUserFragment(contactName, contactNumber, contactPhotoURIStr)
+        navController.navigate(action)
     }
 
     /**
@@ -108,6 +131,7 @@ class HomeFragment : Fragment() {
         private const val CONTENT_PHONE_ITEM_TYPE = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
         private const val FORMATTED_NAME = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME
         private const val FORMATTED_NUMBER = ContactsContract.CommonDataKinds.Phone.NUMBER
+        private const val FORMATTED_PHOTO = ContactsContract.CommonDataKinds.Phone.PHOTO_URI
         private var hasPermission: Boolean = false
     }
 }
