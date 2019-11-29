@@ -1,17 +1,32 @@
 package com.example.callyourmother.fragments
 
+import android.Manifest
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import com.example.callyourmother.R
+import android.widget.TextView
 import com.github.stephenvinouze.shapetextdrawable.ShapeForm
 import com.github.stephenvinouze.shapetextdrawable.ShapeTextDrawable
 import kotlinx.android.synthetic.main.fragment_user.*
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.provider.CallLog
+import android.util.Log
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import java.util.*
+
+
+
+//import android.provider.CallLog
+
+
 
 
 class UserFragment : Fragment() {
@@ -19,8 +34,12 @@ class UserFragment : Fragment() {
     private lateinit var contactPhotoImg: ImageView
     private lateinit var contactNameTv: TextView
     private lateinit var contactNumberTv: TextView
+    private lateinit var callButton: Button
+    private lateinit var manageButton: Button
     private lateinit var contactName: String
     private lateinit var contactNumber: String
+    private lateinit var scheduleText: TextView // displays how frequently we want to call
+    private lateinit var lastCallText: TextView // displays the last time this person was called
     private var contactPhotoUriStr: String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
@@ -47,6 +66,11 @@ class UserFragment : Fragment() {
         contactNumberTv.text = contactNumber
         contactNameTv.text = contactName
         setUpContactPhoto(contactPhotoUriStr, contactName)
+        callButton = call_button // call the current contact
+        manageButton = manage_button // schedule new timers
+        callButton.setOnClickListener { callContact() }
+        manageButton.setOnClickListener { }
+        getLatestCall()
     }
 
     /**
@@ -77,5 +101,42 @@ class UserFragment : Fragment() {
 
             contactPhotoImg.setImageURI(Uri.parse(contactPhotoUriStr))
         }
+    }
+    private fun callContact() {
+        val intent = Intent(Intent.ACTION_CALL)
+        intent.data = Uri.parse("tel:$contactNumber")
+        // if permission is granted, request it
+        if (ContextCompat.checkSelfPermission(this.context!!, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this.activity!!, arrayOf(Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
+        }
+        // if permission has been granted, call the number
+        if (ContextCompat.checkSelfPermission(this.context!!, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+            startActivity(intent)
+        }
+    }
+
+    private fun getLatestCall() {
+        if (ContextCompat.checkSelfPermission(this.context!!, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this.activity!!, arrayOf(Manifest.permission.READ_CALL_LOG), REQUEST_READ_CALL_LOG)
+        }
+        if (ContextCompat.checkSelfPermission(this.context!!, Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED) {
+            val allCalls = Uri.parse("content://call_log/calls")
+            val c = context!!.contentResolver.query(allCalls, null, null, null, null)
+            while(c!!.moveToNext()) {
+                val num = c.getString(c.getColumnIndex(CallLog.Calls.NUMBER))// for  number
+                val name = c.getString(c.getColumnIndex(CallLog.Calls.CACHED_NAME))// for name
+                val duration = c.getString(c.getColumnIndex(CallLog.Calls.DURATION))// for duration
+                val date = Date(java.lang.Long.valueOf(c.getString(c.getColumnIndex(CallLog.Calls.DATE))))
+                val type = Integer.parseInt(c.getString(c.getColumnIndex(CallLog.Calls.TYPE)))// for call type, Incoming or out going.
+                if (type == CallLog.Calls.OUTGOING_TYPE || type == CallLog.Calls.INCOMING_TYPE) {
+                    Log.i(TAG,"$name and $num on $date")
+                }
+            }
+        }
+    }
+    companion object {
+        val TAG = "user-fragment"
+        val REQUEST_PHONE_CALL = 2
+        val REQUEST_READ_CALL_LOG = 3
     }
 }
