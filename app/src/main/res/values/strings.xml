@@ -10,6 +10,8 @@
     <string name="to_user">To User Fragment</string>
     <string name="to_manage">To Manage Fragment</string>
     <string name="to_home">To Home Fragment</string>
+    <string name="call_contact">Call</string>
+    <string name="manage_contact">Manage</string>
     <!-- Hints -->
     <string name="contact_name_hint">Contact Name:</string>
     <string name="contact_number_hint">Contact Number:</string>
@@ -17,4 +19,19 @@
     <string name="contact_photo_desc">Contact\'s Picture or Initials</string>
     <!-- Notify Names-->
     <string name="requires_permission">Grant permission to access contact book</string>
+    <!-- Schedule Options-->
+    <string name="frequency_never">Never</string>
+    <string name="frequency_daily">Every Day</string>
+    <string name="frequency_weekly">Every Week</string>
+    <string name="frequency_biweekly">Every Other Week</string>
+    <string name="frequency_monthly">Every Month</string>
+    <string name="frequency_yearly">Every Year</string>
+    <string-array name="scheduled_frequencies">
+        <item>@string/frequency_never</item>
+        <item>@string/frequency_daily</item>
+        <item>@string/frequency_weekly</item>
+        <item>@string/frequency_biweekly</item>
+        <item>@string/frequency_monthly</item>
+        <item>@string/frequency_yearly</item>
+    </string-array>
 </resources>
