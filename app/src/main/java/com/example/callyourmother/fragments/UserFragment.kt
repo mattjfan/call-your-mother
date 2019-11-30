@@ -25,13 +25,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import java.util.*
 
-
-
-//import android.provider.CallLog
-
-
-
-
 class UserFragment : Fragment() {
 
     private lateinit var contactPhotoImg: ImageView
