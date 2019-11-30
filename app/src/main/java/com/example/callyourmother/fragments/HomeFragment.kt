@@ -5,6 +5,8 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.ImageDecoder
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -14,11 +16,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.callyourmother.R
+import com.example.callyourmother.adapters.HomeItemAdapter
+import com.example.callyourmother.utils.ContactItem
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.net.URI
@@ -32,6 +39,9 @@ class HomeFragment : Fragment() {
 
     private lateinit var addContactFab: FloatingActionButton
     private lateinit var navController: NavController
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: HomeItemAdapter
+    private var contactList: ArrayList<ContactItem>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -40,9 +50,38 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (savedInstanceState != null) {
+            if (savedInstanceState[RECYCLER_LIST] != null) {
+                contactList = savedInstanceState.getParcelableArrayList<ContactItem>(RECYCLER_LIST)
+            }
+        } else {
+            contactList = ArrayList<ContactItem>()
+        }
+
+        if (arguments != null && arguments!!.size() != 0) {
+            val args = HomeFragmentArgs.fromBundle(arguments!!)
+            val contactName = args.contactName
+            val contactPhotoURIStr: String? = args.contactPhotoUriStr
+            val contactItem = ContactItem(contactName, contactPhotoURIStr)
+
+            contactList!!.add(contactItem)
+        }
+
         navController = view.findNavController()
         addContactFab = add_contact_fab
-        add_contact_fab.setOnClickListener { getContact() }
+        addContactFab.setOnClickListener { getContact() }
+        adapter = HomeItemAdapter(contactList!!)
+        recyclerView = home_recyclerview
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.adapter = adapter
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        if (contactList!!.isNotEmpty()) {
+            outState.putParcelableArrayList(RECYCLER_LIST, contactList)
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
@@ -59,7 +98,6 @@ class HomeFragment : Fragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-
         if (resultCode == Activity.RESULT_OK && requestCode == PICK_CONTACT_REQUEST) {
             val contactUri = data?.data ?: return
             val projection = arrayOf(FORMATTED_NAME, FORMATTED_NUMBER, FORMATTED_PHOTO)
@@ -132,6 +170,7 @@ class HomeFragment : Fragment() {
         private const val FORMATTED_NAME = ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME
         private const val FORMATTED_NUMBER = ContactsContract.CommonDataKinds.Phone.NUMBER
         private const val FORMATTED_PHOTO = ContactsContract.CommonDataKinds.Phone.PHOTO_URI
+        private const val RECYCLER_LIST = "Recycler_View_Home_List"
         private var hasPermission: Boolean = false
     }
 }
