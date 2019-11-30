@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_user.*
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.provider.CallLog
+import android.telephony.PhoneNumberUtils
 import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -53,7 +54,8 @@ class UserFragment : Fragment() {
         contactPhotoImg = contact_photo_iv
         contactNameTv = contact_name_tv
         contactNumberTv = contact_number_tv
-
+        lastCallText = lastcall_tv
+        scheduleText = schedule_tv
         // Should never be null otherwise we won't be able to populate this screen at all
         if (arguments != null) {
             val args = UserFragmentArgs.fromBundle(arguments!!)
@@ -114,7 +116,18 @@ class UserFragment : Fragment() {
             startActivity(intent)
         }
     }
+    private fun getReferenceDate( daysBack: Int): Date {
+        val cal: Calendar = Calendar.getInstance()
+        cal.add(Calendar.DATE, -daysBack)
+        return cal.time
+    }
+    private fun isLessThanXDaysBack(date: Date, daysBack: Int): Boolean {
+        return date > getReferenceDate(1)
+    }
 
+    private fun isUpToDate() {
+
+    }
     private fun getLatestCall() {
         if (ContextCompat.checkSelfPermission(this.context!!, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this.activity!!, arrayOf(Manifest.permission.READ_CALL_LOG), REQUEST_READ_CALL_LOG)
@@ -122,6 +135,7 @@ class UserFragment : Fragment() {
         if (ContextCompat.checkSelfPermission(this.context!!, Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED) {
             val allCalls = Uri.parse("content://call_log/calls")
             val c = context!!.contentResolver.query(allCalls, null, null, null, null)
+            var mostRecentDate: Date? = null
             while(c!!.moveToNext()) {
                 val num = c.getString(c.getColumnIndex(CallLog.Calls.NUMBER))// for  number
                 val name = c.getString(c.getColumnIndex(CallLog.Calls.CACHED_NAME))// for name
@@ -129,8 +143,24 @@ class UserFragment : Fragment() {
                 val date = Date(java.lang.Long.valueOf(c.getString(c.getColumnIndex(CallLog.Calls.DATE))))
                 val type = Integer.parseInt(c.getString(c.getColumnIndex(CallLog.Calls.TYPE)))// for call type, Incoming or out going.
                 if (type == CallLog.Calls.OUTGOING_TYPE || type == CallLog.Calls.INCOMING_TYPE) {
-                    Log.i(TAG,"$name and $num on $date")
+                    if(mostRecentDate == null || (date > mostRecentDate && PhoneNumberUtils.compare(num, contactNumber))) {
+                        mostRecentDate = date
+                    }
                 }
+            }
+
+            if (mostRecentDate == null) {
+                Log.i(TAG, "No calls found")
+                lastCallText.text = "Couldn't find any recent calls"
+            } else {
+                when {
+                    (mostRecentDate > getReferenceDate(1)) -> lastCallText.text = "Last call was less than a day ago"
+                    (mostRecentDate > getReferenceDate(7)) -> lastCallText.text = "Last call was earlier this week"
+                    (mostRecentDate > getReferenceDate(30)) -> lastCallText.text = "Last call was earlier this month"
+                    else -> lastCallText.text = "Last call was more than a month ago"
+                }
+                Log.i(TAG, "Most recent convo was $mostRecentDate")
+//                lastCallText.text = "Last call was $mostRecentDate"
             }
         }
     }
