@@ -2,22 +2,15 @@ package com.example.callyourmother.fragments
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.ImageDecoder
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -27,8 +20,9 @@ import com.example.callyourmother.R
 import com.example.callyourmother.adapters.HomeItemAdapter
 import com.example.callyourmother.utils.ContactItem
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_home.*
-import java.net.URI
 
 /**
  * HomeFragment - this is the Fragment that lists out the current contacts you want to keep track of
@@ -41,7 +35,7 @@ class HomeFragment : Fragment() {
     private lateinit var navController: NavController
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: HomeItemAdapter
-    private var contactList: ArrayList<ContactItem>? = null
+    private lateinit var contactList: ArrayList<ContactItem>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -49,14 +43,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        if (savedInstanceState != null) {
-            if (savedInstanceState[RECYCLER_LIST] != null) {
-                contactList = savedInstanceState.getParcelableArrayList<ContactItem>(RECYCLER_LIST)
-            }
-        } else {
-            contactList = ArrayList<ContactItem>()
-        }
+        loadData()
 
         if (arguments != null && arguments!!.size() != 0) {
             val args = HomeFragmentArgs.fromBundle(arguments!!)
@@ -64,24 +51,16 @@ class HomeFragment : Fragment() {
             val contactPhotoURIStr: String? = args.contactPhotoUriStr
             val contactItem = ContactItem(contactName, contactPhotoURIStr)
 
-            contactList!!.add(contactItem)
+            contactList.add(contactItem)
         }
 
         navController = view.findNavController()
         addContactFab = add_contact_fab
         addContactFab.setOnClickListener { getContact() }
-        adapter = HomeItemAdapter(contactList!!)
+        adapter = HomeItemAdapter(contactList)
         recyclerView = home_recyclerview
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-        if (contactList!!.isNotEmpty()) {
-            outState.putParcelableArrayList(RECYCLER_LIST, contactList)
-        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
@@ -118,6 +97,12 @@ class HomeFragment : Fragment() {
 
             cursor?.close()
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        saveData()
     }
 
     /**
@@ -162,6 +147,29 @@ class HomeFragment : Fragment() {
         }
     }
 
+    /** saveData - save the List of contacts as a JSON String representation in SharedPreferences */
+    private fun saveData() {
+        val prefs = activity?.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
+        val editor = prefs?.edit()
+        val json = Gson().toJson(contactList)
+
+        editor?.putString(RECYCLER_LIST, json)
+        editor?.apply()
+    }
+
+    /** loadData - on start up, load up the previous List of contacts (if one exists) */
+    private fun loadData() {
+        val prefs = activity?.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
+        val json = prefs?.getString(RECYCLER_LIST, null)
+        val type = object : TypeToken<ArrayList<ContactItem>>() {}.type
+
+        if (type != null && json != null) {
+            contactList = Gson().fromJson(json, type)
+        } else {
+            contactList = ArrayList<ContactItem>()
+        }
+    }
+
     companion object {
         private const val READ_CONTACTS_PERM = Manifest.permission.READ_CONTACTS
         private const val PICK_CONTACT_REQUEST = 0
@@ -171,6 +179,7 @@ class HomeFragment : Fragment() {
         private const val FORMATTED_NUMBER = ContactsContract.CommonDataKinds.Phone.NUMBER
         private const val FORMATTED_PHOTO = ContactsContract.CommonDataKinds.Phone.PHOTO_URI
         private const val RECYCLER_LIST = "Recycler_View_Home_List"
+        private const val SHARED_PREFS = "Shared_Prefs_Home"
         private var hasPermission: Boolean = false
     }
 }
