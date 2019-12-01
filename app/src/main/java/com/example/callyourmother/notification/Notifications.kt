@@ -35,7 +35,7 @@ class Notifications {
 
     private fun createNotificationChannel(context: Context, CHANNEL_ID: String, CHANNEL_NAME: String, CHANNEL_DESCRIPTION: String) {
         if(VERSION.SDK_INT >= VERSION_CODES.O) {
-            val name = CHANNEL_ID
+            val name = CHANNEL_NAME
             val descriptionText = CHANNEL_DESCRIPTION
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
