@@ -35,12 +35,15 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/user_fab"
+        style="@style/fabStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        app:backgroundTint="@color/materialDarkBlue"
+        app:tint="@color/materialWhite"
         android:clickable="true"
         android:src="@android:drawable/ic_menu_revert"
-        app:backgroundTint="@color/materialBlue"
+        app:borderWidth="0.0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
