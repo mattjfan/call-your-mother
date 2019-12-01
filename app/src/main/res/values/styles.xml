@@ -35,4 +35,8 @@
         <item name="android:buttonCornerRadius">400dp</item>
     </style>
 
+    <style name="fabStyle">
+        <item name="android:background">@color/materialDarkBlue</item>
+    </style>
+
 </resources>

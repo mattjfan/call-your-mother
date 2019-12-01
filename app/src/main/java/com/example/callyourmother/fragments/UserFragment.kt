@@ -118,7 +118,7 @@ class UserFragment : Fragment() {
      */
     private fun toHomeFragment() {
         val strToPass: String? = if (contactPhotoPresent) contactPhotoUriStr else null
-        val action = UserFragmentDirections.actionUserFragmentToHomeFragment(contactName, strToPass)
+        val action = UserFragmentDirections.actionUserFragmentToHomeFragment(contactName, strToPass, contactNumber)
 
         navController.navigate(action)
     }

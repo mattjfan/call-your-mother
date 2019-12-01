@@ -49,9 +49,12 @@ class HomeFragment : Fragment() {
             val args = HomeFragmentArgs.fromBundle(arguments!!)
             val contactName = args.contactName
             val contactPhotoURIStr: String? = args.contactPhotoUriStr
-            val contactItem = ContactItem(contactName, contactPhotoURIStr)
+            val contactNumber = args.contactNumber
+            val contactItem = ContactItem(contactName, contactPhotoURIStr, contactNumber)
 
-            contactList.add(contactItem)
+            if (!contactList.contains(contactItem)) {
+                contactList.add(contactItem)
+            }
         }
 
         navController = view.findNavController()
