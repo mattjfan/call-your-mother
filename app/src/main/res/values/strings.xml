@@ -26,6 +26,7 @@
     <string name="frequency_biweekly">Every Other Week</string>
     <string name="frequency_monthly">Every Month</string>
     <string name="frequency_yearly">Every Year</string>
+    <string name="reminder_frequency">Reminder Frequency</string>
     <string-array name="scheduled_frequencies">
         <item>@string/frequency_never</item>
         <item>@string/frequency_daily</item>

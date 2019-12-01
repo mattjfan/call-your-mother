@@ -1,6 +1,8 @@
 package com.example.callyourmother.fragments
 
 import android.Manifest
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -29,17 +31,16 @@ class UserFragment : Fragment() {
 
     private lateinit var contactPhotoImg: ImageView
     private lateinit var contactNameTv: TextView
-    private lateinit var contactNumberTv: TextView
     private lateinit var callButton: Button
     private lateinit var manageButton: Button
+    private lateinit var reminderDialog: Button
     private lateinit var contactName: String
     private lateinit var contactNumber: String
     private lateinit var navController: NavController
     private lateinit var upButton: FloatingActionButton
-    private var contactPhotoPresent: Boolean = false
-    private lateinit var scheduleText: TextView // displays how frequently we want to call
     private lateinit var lastCallText: TextView // displays the last time this person was called
     private var contactPhotoUriStr: String? = null
+    private var contactPhotoPresent: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_user, container, false)
@@ -51,14 +52,14 @@ class UserFragment : Fragment() {
         // UI setup
         contactPhotoImg = contact_photo_iv
         contactNameTv = contact_name_tv
-        contactNumberTv = contact_number_tv
         upButton = user_fab
         navController = view.findNavController()
+        reminderDialog = reminder_dialog
+        lastCallText = lastcall_tv
 
         upButton.setOnClickListener { toHomeFragment() }
+        reminderDialog.setOnClickListener { setUpDialog() }
 
-        lastCallText = lastcall_tv
-        scheduleText = schedule_tv
         // Should never be null otherwise we won't be able to populate this screen at all
         if (arguments != null) {
             val args = UserFragmentArgs.fromBundle(arguments!!)
@@ -68,7 +69,6 @@ class UserFragment : Fragment() {
             contactName = args.contactName
         }
 
-        contactNumberTv.text = contactNumber
         contactNameTv.text = contactName
         setUpContactPhoto(contactPhotoUriStr, contactName)
         callButton = call_button // call the current contact
@@ -76,6 +76,21 @@ class UserFragment : Fragment() {
         callButton.setOnClickListener { callContact() }
         manageButton.setOnClickListener { }
         getLatestCall()
+    }
+
+    /** setUpDialog - sets up the AlertDialog for the reminder frequency */
+    private fun setUpDialog() {
+        val frequencyList = arrayOf("Daily", "Weekly", "Bi-Weekly", "Monthly")
+        val dialogBuilder = AlertDialog.Builder(context!!)
+        val dialogInterfaceListener = DialogInterface.OnClickListener { dialogInterface, i ->
+            reminderDialog.text = frequencyList[i]
+            dialogInterface.dismiss()
+        }
+        
+        dialogBuilder.setTitle("Reminder Frequency")
+        dialogBuilder.setSingleChoiceItems(frequencyList, -1, dialogInterfaceListener)
+        dialogBuilder.setNeutralButton("Cancel", DialogInterface.OnClickListener {_, _ ->})
+        dialogBuilder.create().show()
     }
 
     /**

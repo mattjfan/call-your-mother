@@ -6,4 +6,6 @@
     <color name="materialWhite">#FAFAFA</color>
     <color name="materialBlack">#212121</color>
     <color name="materialBlue">#3F51B5</color>
+    <color name="materialDarkBlue">#283593</color>
+    <color name="materialAccentBlue">#8C9EFF</color>
 </resources>

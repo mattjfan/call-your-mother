@@ -1,11 +1,11 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/materialBlue</item>
+        <item name="colorPrimaryDark">@color/materialDarkBlue</item>
+        <item name="colorAccent">@color/materialAccentBlue</item>
         <item name="android:windowBackground">@color/materialWhite</item>
     </style>
 
@@ -26,6 +26,13 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/materialBlack</item>
         <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/materialWhite</item>
+        <item name="android:buttonCornerRadius">400dp</item>
     </style>
 
 </resources>

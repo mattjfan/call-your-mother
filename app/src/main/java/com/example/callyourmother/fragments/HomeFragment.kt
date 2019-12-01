@@ -109,7 +109,7 @@ class HomeFragment : Fragment() {
      * toUserFragment - after successfully selecting a new contact, it will navigate to the UserFragment
      *                to set the frequency and other settings
      * @param contactName - the contact name which was selected
-     * @param contactNumber - the contact number which was selected
+     * @param contactNumber - the contact's number
      * @param contactPhotoURIStr - the String of the URI of the contact's photo (if it exists)
      */
     private fun toUserFragment(contactName: String, contactNumber: String, contactPhotoURIStr: String?) {
