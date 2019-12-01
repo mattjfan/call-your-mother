@@ -13,8 +13,23 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_light"
         android:text="@string/app_name"
+        android:textColor="#373F51"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.151" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="261dp"
+        android:layout_height="261dp"
+        android:layout_marginTop="148dp"
+        android:contentDescription="Logo"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_blob" />
 </androidx.constraintlayout.widget.ConstraintLayout>
