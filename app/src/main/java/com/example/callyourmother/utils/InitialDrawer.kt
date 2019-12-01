@@ -1,5 +1,6 @@
 package com.example.callyourmother.utils
 
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import com.github.stephenvinouze.shapetextdrawable.ShapeForm
 import com.github.stephenvinouze.shapetextdrawable.ShapeTextDrawable
@@ -10,6 +11,7 @@ class InitialDrawer {
             val nameList: List<String> = contactName.split("\\s".toRegex())
             val nameListSize = nameList.size
             val firstNameChar = nameList[0][0]
+            val materialDarkBlue = "#283593"
             var strToDraw = "$firstNameChar"
 
             if (nameListSize > 1) {
@@ -18,7 +20,7 @@ class InitialDrawer {
                 strToDraw += lastNameChar
             }
 
-            return ShapeTextDrawable(ShapeForm.ROUND, text = strToDraw)
+            return ShapeTextDrawable(ShapeForm.SQUARE, color = Color.parseColor(materialDarkBlue), text = strToDraw)
         }
     }
 }

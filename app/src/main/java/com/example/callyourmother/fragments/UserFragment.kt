@@ -31,6 +31,7 @@ class UserFragment : Fragment() {
 
     private lateinit var contactPhotoImg: ImageView
     private lateinit var contactNameTv: TextView
+    private lateinit var contactNumberTv: TextView
     private lateinit var callButton: Button
     private lateinit var manageButton: Button
     private lateinit var reminderDialog: Button
@@ -50,12 +51,13 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // UI setup
-        contactPhotoImg = contact_photo_iv
-        contactNameTv = contact_name_tv
+        contactPhotoImg = card_contact_photo
+        contactNumberTv = card_contact_number
+        contactNameTv = card_contact_name_tv
         upButton = user_fab
         navController = view.findNavController()
         reminderDialog = reminder_dialog
-        lastCallText = lastcall_tv
+        lastCallText = card_last_call_tv
 
         upButton.setOnClickListener { toHomeFragment() }
         reminderDialog.setOnClickListener { setUpDialog() }
@@ -70,6 +72,7 @@ class UserFragment : Fragment() {
         }
 
         contactNameTv.text = contactName
+        contactNumberTv.text = contactNumber
         setUpContactPhoto(contactPhotoUriStr, contactName)
         callButton = call_button // call the current contact
         manageButton = manage_button // schedule new timers
@@ -122,6 +125,8 @@ class UserFragment : Fragment() {
 
         navController.navigate(action)
     }
+
+    /** callContact - call the Contact on the screen */
     private fun callContact() {
         val intent = Intent(Intent.ACTION_CALL)
         intent.data = Uri.parse("tel:$contactNumber")
@@ -134,18 +139,34 @@ class UserFragment : Fragment() {
             startActivity(intent)
         }
     }
+
+    /**
+     * getReferenceDate - gets the reference date
+     * @param daysBack - number of days back
+     * @return the last date back
+     */
     private fun getReferenceDate( daysBack: Int): Date {
         val cal: Calendar = Calendar.getInstance()
         cal.add(Calendar.DATE, -daysBack)
         return cal.time
     }
+
+    /**
+     * isLessThanXDaysBacks - checks to see how far back the date is from the last call
+     * @param date - the previous date
+     * @param daysBack - the number of days back
+     * @return true if the date is greater than the number of days back. False otherwise
+     */
     private fun isLessThanXDaysBack(date: Date, daysBack: Int): Boolean {
         return date > getReferenceDate(1)
     }
 
+    /** isUpToDate - checks to see if the timer is up to date? */
     private fun isUpToDate() {
 
     }
+
+    /** getLatestCall - queries for the latest call to the current contact */
     private fun getLatestCall() {
         if (ContextCompat.checkSelfPermission(this.context!!, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this.activity!!, arrayOf(Manifest.permission.READ_CALL_LOG), REQUEST_READ_CALL_LOG)
@@ -167,9 +188,11 @@ class UserFragment : Fragment() {
                 }
             }
 
+            c.close()
+
             if (mostRecentDate == null) {
                 Log.i(TAG, "No calls found")
-                lastCallText.text = "Couldn't find any recent calls"
+                lastCallText.text = "Could not find any recent calls"
             } else {
                 when {
                     (mostRecentDate > getReferenceDate(1)) -> lastCallText.text = "Last call was less than a day ago"
@@ -182,6 +205,7 @@ class UserFragment : Fragment() {
             }
         }
     }
+
     companion object {
         val TAG = "user-fragment"
         val REQUEST_PHONE_CALL = 2

@@ -15,6 +15,7 @@
     <!-- Hints -->
     <string name="contact_name_hint">Contact Name:</string>
     <string name="contact_number_hint">Contact Number:</string>
+    <string name="contact_last_call">Last call was</string>
     <!-- Descriptor -->
     <string name="contact_photo_desc">Contact\'s Picture or Initials</string>
     <!-- Notify Names-->
