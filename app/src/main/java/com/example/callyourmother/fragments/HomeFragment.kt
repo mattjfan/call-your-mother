@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.callyourmother.R
@@ -64,6 +65,7 @@ class HomeFragment : Fragment() {
         recyclerView = home_recyclerview
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
+        attachTouchCallback()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
@@ -106,6 +108,23 @@ class HomeFragment : Fragment() {
         super.onStop()
 
         saveData()
+    }
+
+    /** attachTouchCallback - attach the touch callback for deleting a contact from the List */
+    private fun attachTouchCallback() {
+        val itemTouchCallback = object: ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                return false // No need to implement this
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                contactList.removeAt(viewHolder.adapterPosition)
+                adapter.notifyDataSetChanged()
+                Toast.makeText(context,"Contact Deleted!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        ItemTouchHelper(itemTouchCallback).attachToRecyclerView(recyclerView)
     }
 
     /**
