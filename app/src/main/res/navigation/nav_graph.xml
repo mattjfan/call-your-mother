@@ -32,6 +32,9 @@
         <argument
             android:name="contactNumber"
             app:argType="string" />
+        <argument
+            android:name="shouldSave"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -52,7 +55,8 @@
             android:id="@+id/action_userFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/slide_in_right_anim"
-            app:exitAnim="@anim/slide_out_right_anim" />
+            app:exitAnim="@anim/slide_out_right_anim"
+            app:launchSingleTop="false" />
     </fragment>
     <fragment
         android:id="@+id/manageScheduleFragment"

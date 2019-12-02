@@ -35,6 +35,8 @@ class UserFragment : Fragment() {
     private lateinit var contactNameTv: TextView
     private lateinit var contactNumberTv: TextView
     private lateinit var callButton: Button
+    private lateinit var deleteButton: Button
+    private lateinit var saveButton: Button
 //    private lateinit var reminderDialog: Button
     private lateinit var contactName: String
     private lateinit var contactNumber: String
@@ -57,11 +59,24 @@ class UserFragment : Fragment() {
         contactNumberTv = card_contact_number
         contactNameTv = card_contact_name_tv
         upButton = user_fab
+        saveButton = save_contact
+        deleteButton = delete_contact
         navController = view.findNavController()
 //        reminderDialog = reminder_dialog
         lastCallText = card_last_call_tv
 
-        upButton.setOnClickListener { toHomeFragment() }
+        upButton.setOnClickListener {
+            Toast.makeText(context, "Contact Saved!", Toast.LENGTH_SHORT).show()
+            toHomeFragment(true)
+        }
+        deleteButton.setOnClickListener {
+            Toast.makeText(context,"Contact Deleted!", Toast.LENGTH_SHORT).show()
+            toHomeFragment(false)
+        }
+        saveButton.setOnClickListener {
+            Toast.makeText(context, "Contact Saved!", Toast.LENGTH_SHORT).show()
+            toHomeFragment(true)
+        }
 //        reminderDialog.setOnClickListener { setUpDialog() }
 
         // Should never be null otherwise we won't be able to populate this screen at all
@@ -147,9 +162,9 @@ class UserFragment : Fragment() {
     /**
      * toHomeFragment - sends the required resources back to the HomeFragment
      */
-    private fun toHomeFragment() {
+    private fun toHomeFragment(shouldSave: Boolean) {
         val strToPass: String? = if (contactPhotoPresent) contactPhotoUriStr else null
-        val action = UserFragmentDirections.actionUserFragmentToHomeFragment(contactName, strToPass, contactNumber)
+        val action = UserFragmentDirections.actionUserFragmentToHomeFragment(contactName, strToPass, contactNumber, shouldSave)
 
         navController.navigate(action)
     }
@@ -257,6 +272,7 @@ class UserFragment : Fragment() {
         }
         return null
     }
+
     private fun getStatusMessage(colorID: Int, status: String, moreInfo: String ): Spanned {
         return Html.fromHtml("<b><font color=${resources.getColor(colorID)}>$status</font></b> <br/> $moreInfo")
     }
