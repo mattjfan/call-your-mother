@@ -13,6 +13,7 @@
     <string name="call_contact">Call</string>
     <string name="manage_contact">Manage</string>
     <string name="delete_contact">Delete</string>
+    <string name="save_contact">Save</string>
     <!-- Hints -->
     <string name="contact_name_hint">Contact Name:</string>
     <string name="contact_number_hint">Contact Number:</string>

@@ -14,8 +14,4 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-
-    override fun onBackPressed() {
-        // Rely on the up button presses
-    }
 }

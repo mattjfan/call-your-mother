@@ -47,7 +47,7 @@ class Notifications {
     }
 
     public fun setScheduledNotification(context : Context, schedule: Int, lastCalled: Calendar,
-                                        userID: Int, title: String, body: String) {
+                                        userID: String, title: String, body: String) {
         val manager : AlarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         val intent : Intent = Intent(context, AlarmReceiver::class.java)
@@ -109,8 +109,8 @@ class Notifications {
 
     companion object {
         fun phoneNumbertoID(userID: String) : String {
-            return userID.trim().replace("(", "").replace(")", "")
-                .replace("-","")
+            return userID.trim().replace("(", "").replace(" ", "")
+                    .replace(")", "").replace("-","")
         }
     }
 
