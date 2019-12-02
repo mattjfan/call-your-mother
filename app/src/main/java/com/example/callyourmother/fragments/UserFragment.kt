@@ -242,10 +242,10 @@ class UserFragment : Fragment() {
                 val type =
                     Integer.parseInt(c.getString(c.getColumnIndex(CallLog.Calls.TYPE)))// for call type, Incoming or out going.
                 if (type == CallLog.Calls.OUTGOING_TYPE || type == CallLog.Calls.INCOMING_TYPE) {
-                    if (mostRecentDate == null || (date > mostRecentDate && PhoneNumberUtils.compare(
+                    if ((mostRecentDate == null || date > mostRecentDate) && PhoneNumberUtils.compare(
                             num,
                             contactNumber
-                        ))
+                        )
                     ) {
                         mostRecentDate = date
                     }
@@ -279,10 +279,10 @@ class UserFragment : Fragment() {
 
         if (mostRecentDate == null) {
             Log.i(TAG, "No calls found")
-            lastCallText.text = "Could not find any recent calls"
+            lastCallText.text = getStatusMessage(R.color.accentYellow, resources.getString(R.string.status_behind), "Could not find any recent calls")
         } else {
-            var message: String = ""
-            var colorID: Int = 0
+            var message: String
+            var colorID: Int
             when {
                 mostRecentDate > getReferenceDate(freq) -> {
                     message = resources.getString(R.string.status_caught_up)
