@@ -9,6 +9,7 @@ import android.content.Intent
 import android.os.Build.VERSION_CODES
 import androidx.core.app.NotificationCompat
 import android.os.Build.VERSION
+import android.os.Bundle
 import androidx.core.app.NotificationManagerCompat
 import java.util.*
 
@@ -90,21 +91,28 @@ class Notifications {
     }
 
     //For the video
-    public fun setTimedNotification(context: Context, intent: Intent) {
+    public fun setTimedNotification(context: Context) {
         val manager : AlarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         val intent : Intent = Intent(context, AlarmReceiver::class.java)
-        intent.putExtra("notificationBody", "You should call your mother!")
-        intent.putExtra("notificationTitle", "CAll YOUR MOTHER")
-        intent.putExtra("userID", "203-410-9815")
+        val bundle = Bundle()
+
+        bundle.putString("notificationBody", "You should call your mother!")
+        bundle.putString("notificationTitle", "CAll YOUR MOTHER")
+        bundle.putString("userID", "203-410-9815")
+
+        intent.putExtra("Bundle", bundle)
+
+//        intent.putExtra("notificationBody", "You should call your mother!")
+//        intent.putExtra("notificationTitle", "CAll YOUR MOTHER")
+//        intent.putExtra("userID", "203-410-9815")
 
         val pendingIntent : PendingIntent = PendingIntent.getBroadcast(context,0,intent,0)
 
         val nextCall : Calendar = Calendar.getInstance()
         nextCall.timeInMillis = System.currentTimeMillis()
-        nextCall.add(Calendar.MILLISECOND, 30000)
 
-        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, nextCall.timeInMillis, 60000, pendingIntent)
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, nextCall.timeInMillis, 10, pendingIntent)
     }
 
     companion object {

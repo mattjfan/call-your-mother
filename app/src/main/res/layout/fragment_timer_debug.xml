@@ -17,4 +17,14 @@
         android:text="@string/to_home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/test"
+        android:layout_width="92dp"
+        android:layout_height="50dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/to_home_fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
