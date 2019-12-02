@@ -88,4 +88,11 @@ class Notifications {
             manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, nextCall.timeInMillis, interval, pendingIntent)
         }
     }
+    companion object {
+        fun phoneNumbertoID(userID: String) : String {
+            return userID.trim().replace("(", "").replace(")", "")
+                .replace("-","")
+        }
+    }
+
 }

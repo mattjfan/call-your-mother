@@ -28,9 +28,11 @@
     <string name="frequency_biweekly">Every Other Week</string>
     <string name="frequency_monthly">Every Month</string>
     <string name="frequency_yearly">Every Year</string>
+    <string name="contact_remind_me">Remind me</string>
+    <string name="status_caught_up">All caught up!</string>
+    <string name="status_behind">Give \'em a call!</string>
     <string name="reminder_frequency">Reminder Frequency</string>
     <string-array name="scheduled_frequencies">
-        <item>@string/frequency_never</item>
         <item>@string/frequency_daily</item>
         <item>@string/frequency_weekly</item>
         <item>@string/frequency_biweekly</item>
