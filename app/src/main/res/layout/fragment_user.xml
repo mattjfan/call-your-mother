@@ -93,20 +93,23 @@
                 style="@style/buttonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:backgroundTint="@color/colorSecondary"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/accentGreen"
                 android:backgroundTintMode="src_in"
-                android:textColor="@color/materialWhite"
                 android:text="@string/call_contact"
+                android:textColor="@color/materialWhite"
+                app:layout_constraintBottom_toTopOf="@+id/delete_contact"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card_last_call_tv" />
+                app:layout_constraintTop_toBottomOf="@+id/reminder_frequency_spinner"
+                app:layout_constraintVertical_bias="0.223" />
 
             <Button
                 android:id="@+id/delete_contact"
                 android:layout_width="85dp"
                 android:layout_height="32dp"
+                android:layout_marginBottom="16dp"
                 android:backgroundTint="@color/materialWhite"
                 android:backgroundTintMode="src_in"
                 android:text="@string/delete_contact"
@@ -116,21 +119,33 @@
                 app:iconTintMode="multiply"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.902"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/reminder_dialog" />
+                app:layout_constraintHorizontal_bias="0.884"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-
-                android:id="@+id/reminder_dialog"
-                style="@style/buttonStyle"
+            <TextView
+                android:id="@+id/remind_me_tv"
+                style="@style/subtitleTwoFontStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/reminder_frequency"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/contact_remind_me"
+                app:layout_constraintBottom_toTopOf="@+id/call_button"
+                app:layout_constraintEnd_toStartOf="@+id/reminder_frequency_spinner"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/call_button" />
+                app:layout_constraintTop_toBottomOf="@+id/card_last_call_tv"
+                app:layout_constraintVertical_bias="0.058" />
+
+            <Spinner
+                android:id="@+id/reminder_frequency_spinner"
+                android:layout_width="195dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:entries="@array/scheduled_frequencies"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_last_call_tv" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
