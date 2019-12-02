@@ -2,6 +2,7 @@ package com.example.callyourmother.fragments
 
 import android.Manifest
 import android.app.AlertDialog
+import android.content.Context.MODE_PRIVATE
 import android.content.DialogInterface
 import android.net.Uri
 import android.os.Bundle
@@ -19,6 +20,7 @@ import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_user.*
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.provider.CallLog
 import android.telephony.PhoneNumberUtils
@@ -39,6 +41,7 @@ class UserFragment : Fragment() {
     private lateinit var contactNumber: String
     private lateinit var navController: NavController
     private lateinit var upButton: FloatingActionButton
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var lastCallText: TextView // displays the last time this person was called
     private var contactPhotoUriStr: String? = null
     private var contactPhotoPresent: Boolean = false
@@ -78,6 +81,7 @@ class UserFragment : Fragment() {
         manageButton = manage_button // schedule new timers
         callButton.setOnClickListener { callContact() }
         manageButton.setOnClickListener { }
+        sharedPreferences = this.activity!!.getPreferences(MODE_PRIVATE)
         getLatestCall()
     }
 
@@ -165,7 +169,9 @@ class UserFragment : Fragment() {
     private fun isUpToDate() {
 
     }
+    private fun setScheduleFrequency() {
 
+    }
     /** getLatestCall - queries for the latest call to the current contact */
     private fun getLatestCall() {
         if (ContextCompat.checkSelfPermission(this.context!!, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {

@@ -43,7 +43,7 @@
     </style>
 
     <style name="fabStyle">
-        <item name="android:background">@color/materialDarkBlue</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
 </resources>

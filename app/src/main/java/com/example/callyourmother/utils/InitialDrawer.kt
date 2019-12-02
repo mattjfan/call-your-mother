@@ -11,7 +11,7 @@ class InitialDrawer {
             val nameList: List<String> = contactName.split("\\s".toRegex())
             val nameListSize = nameList.size
             val firstNameChar = nameList[0][0]
-            val materialDarkBlue = "#283593"
+            val color = "##477DAD" //TODO: link to resource @color/colorSecondary
             var strToDraw = "$firstNameChar"
 
             if (nameListSize > 1) {
@@ -20,7 +20,7 @@ class InitialDrawer {
                 strToDraw += lastNameChar
             }
 
-            return ShapeTextDrawable(ShapeForm.SQUARE, color = Color.parseColor(materialDarkBlue), text = strToDraw)
+            return ShapeTextDrawable(ShapeForm.SQUARE, color = Color.parseColor(color), text = strToDraw)
         }
     }
 }

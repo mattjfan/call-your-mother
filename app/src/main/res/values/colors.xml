@@ -6,7 +6,7 @@
     <color name="colorPrimaryDark">#153654</color>
     <color name="colorSecondary">#EDAFB8</color>
     <color name="colorSecondaryLight">#EDAFB8</color>
-    <color name="colorSecondaryDark">#ED788A</color>
+    <color name="colorSecondaryDark">#e77a8a</color>
     <color name="colorNeutral">#83888C</color>
     <color name="accentGreen">#1CCA81</color>
     <color name="accentYellow">#FEC063</color>
@@ -14,7 +14,4 @@
     <color name="accentRed">#ff5548</color>
     <color name="materialWhite">#FAFAFA</color>
     <color name="materialBlack">#212121</color>
-    <color name="materialBlue">#3F51B5</color>
-    <color name="materialDarkBlue">#283593</color>
-    <color name="materialAccentBlue">#8C9EFF</color>
 </resources>
