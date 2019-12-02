@@ -212,13 +212,13 @@ class UserFragment : Fragment() {
         val editor = sharedPreferences.edit()
         editor.putInt(Notifications.phoneNumbertoID(contactNumber), freq)
         editor.apply()
-
+        val mostRecentCallDate = getMostRecentCallDate() ?: getReferenceDate(0)
         val notificationManager : Notifications = Notifications()
         notificationManager.createNotificationChannel(this.requireContext(),
                 "0", "main", "")
 
         val mostRecentDate : Calendar = Calendar.getInstance()
-        mostRecentDate.time = getMostRecentCallDate()
+        mostRecentDate.time = mostRecentCallDate
 
         notificationManager.setScheduledNotification(this.requireContext(),
                 freq, mostRecentDate, contactNumber, "Call Your Mother!",
