@@ -88,6 +88,25 @@ class Notifications {
             manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, nextCall.timeInMillis, interval, pendingIntent)
         }
     }
+
+    //For the video
+    public fun setTimedNotification(context: Context, intent: Intent) {
+        val manager : AlarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+        val intent : Intent = Intent(context, AlarmReceiver::class.java)
+        intent.putExtra("notificationBody", "You should call your mother!")
+        intent.putExtra("notificationTitle", "CAll YOUR MOTHER")
+        intent.putExtra("userID", "203-410-9815")
+
+        val pendingIntent : PendingIntent = PendingIntent.getBroadcast(context,0,intent,0)
+
+        val nextCall : Calendar = Calendar.getInstance()
+        nextCall.timeInMillis = System.currentTimeMillis()
+        nextCall.add(Calendar.MILLISECOND, 30000)
+
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, nextCall.timeInMillis, 60000, pendingIntent)
+    }
+
     companion object {
         fun phoneNumbertoID(userID: String) : String {
             return userID.trim().replace("(", "").replace(")", "")

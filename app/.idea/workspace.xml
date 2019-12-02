@@ -7,8 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3e784bb-5d32-46ab-98d5-20d59a33b81b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,12 +49,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/HomeFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
+            <state relative-caret-position="373">
               <caret line="193" selection-start-line="193" selection-end-line="193" />
               <folding>
                 <element signature="e#46#1011#0" expanded="true" />
                 <element signature="e#3251#3290#1" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/ManageScheduleFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -68,20 +76,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/UserFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="131" column="31" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="31" />
+            <state relative-caret-position="844">
+              <caret line="302" column="27" selection-start-line="302" selection-start-column="27" selection-end-line="302" selection-end-column="27" />
               <folding>
-                <element signature="e#46#985#0" expanded="true" />
+                <element signature="e#46#1116#0" expanded="true" />
+                <element signature="e#11979#12022#1" expanded="true" />
+                <element signature="e#12247#12293#0" expanded="true" />
+                <element signature="e#12418#12461#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+            <state relative-caret-position="498">
+              <caret line="103" column="43" selection-start-line="103" selection-start-column="43" selection-end-line="103" selection-end-column="43" />
               <folding>
                 <element signature="e#49#436#0" expanded="true" />
               </folding>
@@ -90,21 +101,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="e#49#173#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
+            <state relative-caret-position="509">
               <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
               <folding>
                 <element signature="e#49#346#0" expanded="true" />
@@ -132,12 +131,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_user.xml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -150,6 +143,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>intent</find>
+      <find>contactList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,8 +156,8 @@
         <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/activities/MainActivity.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt" />
       </list>
     </option>
   </component>
@@ -195,13 +189,6 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="callyourmother" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="callyourmother" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="activities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
@@ -407,27 +394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/HomeFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="193" selection-start-line="193" selection-end-line="193" />
-          <folding>
-            <element signature="e#46#1011#0" expanded="true" />
-            <element signature="e#3251#3290#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/UserFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="131" column="31" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="31" />
-          <folding>
-            <element signature="e#46#985#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -438,22 +404,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+        <state relative-caret-position="509">
+          <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
           <folding>
-            <element signature="e#49#436#0" expanded="true" />
+            <element signature="e#49#346#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/HomeFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+        <state relative-caret-position="373">
+          <caret line="193" selection-start-line="193" selection-end-line="193" />
           <folding>
-            <element signature="e#49#346#0" expanded="true" />
+            <element signature="e#46#1011#0" expanded="true" />
+            <element signature="e#3251#3290#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/UserFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="844">
+          <caret line="302" column="27" selection-start-line="302" selection-start-column="27" selection-end-line="302" selection-end-column="27" />
+          <folding>
+            <element signature="e#46#1116#0" expanded="true" />
+            <element signature="e#11979#12022#1" expanded="true" />
+            <element signature="e#12247#12293#0" expanded="true" />
+            <element signature="e#12418#12461#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="103" column="43" selection-start-line="103" selection-start-column="43" selection-end-line="103" selection-end-column="43" />
+          <folding>
+            <element signature="e#49#436#0" expanded="true" />
           </folding>
         </state>
       </provider>
