@@ -35,7 +35,6 @@ class UserFragment : Fragment() {
     private lateinit var contactNameTv: TextView
     private lateinit var contactNumberTv: TextView
     private lateinit var callButton: Button
-    private lateinit var manageButton: Button
     private lateinit var reminderDialog: Button
     private lateinit var contactName: String
     private lateinit var contactNumber: String
@@ -78,9 +77,7 @@ class UserFragment : Fragment() {
         contactNumberTv.text = contactNumber
         setUpContactPhoto(contactPhotoUriStr, contactName)
         callButton = call_button // call the current contact
-        manageButton = manage_button // schedule new timers
         callButton.setOnClickListener { callContact() }
-        manageButton.setOnClickListener { }
         sharedPreferences = this.activity!!.getPreferences(MODE_PRIVATE)
         getLatestCall()
     }

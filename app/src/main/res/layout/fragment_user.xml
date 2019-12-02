@@ -23,22 +23,10 @@
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-
-        android:id="@+id/reminder_dialog"
-        style="@style/buttonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/reminder_frequency"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_card" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/contact_card"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_width="353dp"
+        android:layout_height="463dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="30dp"
@@ -105,25 +93,29 @@
                 style="@style/buttonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="68dp"
-                android:layout_marginBottom="28dp"
+                android:layout_marginTop="52dp"
                 android:text="@string/call_contact"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_last_call_tv" />
 
-            <Button
-                android:id="@+id/manage_button"
+            <com.google.android.material.button.MaterialButton
+
+                android:id="@+id/reminder_dialog"
                 style="@style/buttonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginBottom="28dp"
-                android:text="@string/manage_contact"
+                android:layout_marginTop="16dp"
+                android:text="@string/reminder_frequency"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.345"
-                app:layout_constraintStart_toEndOf="@+id/call_button" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/call_button"
+                app:layout_constraintVertical_bias="0.0" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

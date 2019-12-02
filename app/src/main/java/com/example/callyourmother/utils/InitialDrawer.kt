@@ -11,7 +11,7 @@ class InitialDrawer {
             val nameList: List<String> = contactName.split("\\s".toRegex())
             val nameListSize = nameList.size
             val firstNameChar = nameList[0][0]
-            val color = "##477DAD" //TODO: link to resource @color/colorSecondary
+            val color = "#477DAD" //TODO: link to resource @color/colorSecondary
             var strToDraw = "$firstNameChar"
 
             if (nameListSize > 1) {
