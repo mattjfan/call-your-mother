@@ -197,6 +197,17 @@ class UserFragment : Fragment() {
         val editor = sharedPreferences.edit()
         editor.putInt(Notifications.phoneNumbertoID(contactNumber), freq)
         editor.apply()
+
+        val notificationManager : Notifications = Notifications()
+        notificationManager.createNotificationChannel(this.requireContext(),
+                "0", "main", "")
+
+        val mostRecentDate : Calendar = Calendar.getInstance()
+        mostRecentDate.time = getMostRecentCallDate()
+
+        notificationManager.setScheduledNotification(this.requireContext(),
+                freq, mostRecentDate, contactNumber, "Call Your Mother!",
+                "Don't forget to call " + contactName + "!")
     }
     private fun getScheduleFrequency(): Int {
         var freq = sharedPreferences.getInt(Notifications.phoneNumbertoID(contactNumber), -1)

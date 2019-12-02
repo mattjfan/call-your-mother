@@ -43,8 +43,8 @@ class AlarmReceiver() : BroadcastReceiver() {
     }
 
     private fun format(userID: String) : Int {
-        return userID.trim().replace("(", "").replace(")", "")
-                .replace("-","").toInt()
+        return userID.trim().replace(" ","").replace("(", "")
+                .replace(")", "").replace("-","").toInt()
     }
 
 }
