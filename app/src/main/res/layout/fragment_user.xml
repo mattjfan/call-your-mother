@@ -109,6 +109,7 @@
                 android:id="@+id/delete_contact"
                 android:layout_width="85dp"
                 android:layout_height="32dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="@color/materialWhite"
                 android:backgroundTintMode="src_in"
@@ -118,8 +119,24 @@
                 android:textSize="10sp"
                 app:iconTintMode="multiply"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.884"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/save_contact"
+                android:layout_width="85dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/materialWhite"
+                android:backgroundTintMode="src_in"
+                android:text="@string/save_contact"
+                android:textColor="@color/colorPrimary"
+                android:textColorLink="#F8F8F8"
+                android:textSize="10sp"
+                app:iconTintMode="multiply"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/delete_contact"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView

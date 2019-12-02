@@ -2,7 +2,9 @@ package com.example.callyourmother.fragments
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -51,11 +53,23 @@ class HomeFragment : Fragment() {
             val contactName = args.contactName
             val contactPhotoURIStr: String? = args.contactPhotoUriStr
             val contactNumber = args.contactNumber
+            val shouldSave = args.shouldSave
             val contactItem = ContactItem(contactName, contactPhotoURIStr, contactNumber)
 
-            if (!contactList.contains(contactItem)) {
-                contactList.add(contactItem)
+            if (shouldSave) {
+                if (!contactList.contains(contactItem)) {
+                    contactList.add(contactItem)
+                }
+            } else {
+                if (contactList.contains(contactItem)) {
+                    contactList.remove(contactItem)
+                }
             }
+        }
+
+
+        if (contactList.isEmpty()) {
+            addContactDialog()
         }
 
         navController = view.findNavController()
@@ -125,6 +139,17 @@ class HomeFragment : Fragment() {
         }
 
         ItemTouchHelper(itemTouchCallback).attachToRecyclerView(recyclerView)
+    }
+
+    private fun addContactDialog() {
+        val dialogBuilder = AlertDialog.Builder(context!!)
+        val dialogInterfaceListener = DialogInterface.OnClickListener { dialogInterface, i ->
+            dialogInterface.dismiss()
+            getContact()
+        }
+
+        dialogBuilder.setTitle("Add a Contact").setMessage("You should add a contact to get started!").setIcon(R.drawable.logo_blob).setCancelable(false).setPositiveButton("Yes", dialogInterfaceListener)
+        dialogBuilder.show()
     }
 
     /**
