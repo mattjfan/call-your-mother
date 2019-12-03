@@ -11,11 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3e784bb-5d32-46ab-98d5-20d59a33b81b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/TimerDebug.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/TimerDebug.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_timer_debug.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_timer_debug.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/HomeFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="184">
+              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
               <folding>
                 <element signature="e#46#1081#0" expanded="true" />
                 <element signature="e#3650#3689#1" expanded="true" />
@@ -70,7 +69,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/UserFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2348">
+            <state relative-caret-position="848">
               <caret line="219" column="62" selection-start-line="219" selection-start-column="62" selection-end-line="219" selection-end-column="62" />
               <folding>
                 <element signature="e#46#1116#0" expanded="true" />
@@ -85,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/TimerDebug.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+            <state relative-caret-position="555">
+              <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
               <folding>
                 <element signature="e#47#402#0" expanded="true" />
               </folding>
@@ -97,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="107" column="51" lean-forward="true" selection-start-line="105" selection-start-column="10" selection-end-line="107" selection-end-column="51" />
+            <state relative-caret-position="273">
+              <caret line="102" column="123" selection-start-line="102" selection-start-column="123" selection-end-line="102" selection-end-column="123" />
               <folding>
                 <element signature="e#49#436#0" expanded="true" />
               </folding>
@@ -107,10 +106,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="-6">
+              <caret line="24" column="87" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
               <folding>
                 <element signature="e#49#382#0" expanded="true" />
               </folding>
@@ -119,28 +128,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_timer_debug.xml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/navigation/nav_graph.xml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="nav-designer" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+            <state relative-caret-position="285">
+              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
               <folding>
-                <element signature="e#49#173#0" expanded="true" />
+                <element signature="e#49#197#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -169,14 +162,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/activities/MainActivity.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/UserFragment.kt" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_timer_debug.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/TimerDebug.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt" />
+        <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -267,6 +260,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_XL_API_26" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-12-03T00:30:52.531Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -361,7 +356,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="1" />
@@ -374,7 +368,7 @@
       <window_info id="Favorites" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Run" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" weight="0.32891566" />
-      <window_info anchor="bottom" id="Logcat" order="0" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="0" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Android Profiler" order="2" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.32891566" />
@@ -387,18 +381,6 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
     </layout>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/activities/SplashScreen.kt">
@@ -421,14 +403,6 @@
           <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/activities/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
@@ -456,9 +430,28 @@
         <state relative-caret-position="-1124" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_timer_debug.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/HomeFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <folding>
+            <element signature="e#46#1081#0" expanded="true" />
+            <element signature="e#3650#3689#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/UserFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2348">
+        <state relative-caret-position="848">
           <caret line="219" column="62" selection-start-line="219" selection-start-column="62" selection-end-line="219" selection-end-column="62" />
           <folding>
             <element signature="e#46#1116#0" expanded="true" />
@@ -471,62 +464,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/TimerDebug.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+        <state relative-caret-position="555">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
           <folding>
             <element signature="e#47#402#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/fragments/HomeFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#46#1081#0" expanded="true" />
-            <element signature="e#3650#3689#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/ActionReceiver.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+        <state relative-caret-position="285">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding>
-            <element signature="e#49#173#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_timer_debug.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="107" column="51" lean-forward="true" selection-start-line="105" selection-start-column="10" selection-end-line="107" selection-end-column="51" />
-          <folding>
-            <element signature="e#49#436#0" expanded="true" />
+            <element signature="e#49#197#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/AlarmReceiver.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="-6">
+          <caret line="24" column="87" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
           <folding>
             <element signature="e#49#382#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/callyourmother/notification/Notifications.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="102" column="123" selection-start-line="102" selection-start-column="123" selection-end-line="102" selection-end-column="123" />
+          <folding>
+            <element signature="e#49#436#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="19" lean-forward="true" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
   </component>
 </project>

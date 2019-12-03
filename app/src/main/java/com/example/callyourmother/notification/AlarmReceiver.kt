@@ -19,12 +19,10 @@ class AlarmReceiver() : BroadcastReceiver() {
         val body = intent.getStringExtra("notificationBody")
         val userID = intent.getStringExtra("userID")
 
-        val num = intent.extras?.size()
-
         //Call button action for notifications
         val actionIntent : Intent = Intent(context, ActionReceiver::class.java)
         actionIntent.putExtra("userID", userID)
-        val actionPendingIntent : PendingIntent = PendingIntent.getBroadcast(context, 0, actionIntent, 0)
+        val actionPendingIntent : PendingIntent = PendingIntent.getBroadcast(context, 1, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val builder = NotificationCompat.Builder(context, "0")
 
@@ -45,7 +43,7 @@ class AlarmReceiver() : BroadcastReceiver() {
                 .addAction(0, "Call", actionPendingIntent)
 
         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(123, builder.build())
+        notificationManager.notify(format(userID), builder.build())
     }
 
     private fun format(userID: String) : Int {

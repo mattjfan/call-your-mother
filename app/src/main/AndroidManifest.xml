@@ -25,6 +25,7 @@
         <activity android:name=".activities.MainActivity">
         </activity>
         <receiver android:name=".notification.AlarmReceiver" />
+        <receiver android:name=".notification.ActionReceiver" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
