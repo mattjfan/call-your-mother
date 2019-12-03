@@ -8,6 +8,7 @@ import android.app.PendingIntent
 import android.content.Intent
 import android.content.Context
 import androidx.core.app.NotificationCompat
+import com.example.callyourmother.R
 
 class AlarmReceiver() : BroadcastReceiver() {
 
@@ -19,7 +20,8 @@ class AlarmReceiver() : BroadcastReceiver() {
         //Call button action for notifications
         val actionIntent : Intent = Intent(context, ActionReceiver::class.java)
         intent.putExtra("userID", userID)
-        val actionPendingIntent : PendingIntent = PendingIntent.getBroadcast(context, 0, actionIntent, 0)
+        val actionPendingIntent : PendingIntent = PendingIntent.getBroadcast(context, 0,
+                actionIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val builder = NotificationCompat.Builder(context)
 
@@ -33,6 +35,7 @@ class AlarmReceiver() : BroadcastReceiver() {
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
                 .setContentTitle(title)
+                .setSmallIcon(R.drawable.logo_blob)
                 .setContentIntent(pendingIntent)
                 .setContentText(body)
                 .setDefaults(Notification.DEFAULT_LIGHTS or Notification.DEFAULT_SOUND)
@@ -44,7 +47,7 @@ class AlarmReceiver() : BroadcastReceiver() {
 
     private fun format(userID: String) : Int {
         return userID.trim().replace(" ","").replace("(", "")
-                .replace(")", "").replace("-","").toInt()
+                .replace(")", "").replace("-","").hashCode()
     }
 
 }
