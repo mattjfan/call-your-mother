@@ -10,6 +10,8 @@ import android.content.Context
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.example.callyourmother.R
+import com.example.callyourmother.activities.SplashScreen
+import com.example.callyourmother.fragments.HomeFragment
 
 class AlarmReceiver() : BroadcastReceiver() {
 
@@ -29,8 +31,8 @@ class AlarmReceiver() : BroadcastReceiver() {
         val pendingIntent = PendingIntent.getActivity(
                 context,
                 0,
-                intent,
-                FLAG_ONE_SHOT)
+                Intent(context, SplashScreen::class.java),
+                PendingIntent.FLAG_UPDATE_CURRENT)
 
         builder.setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)

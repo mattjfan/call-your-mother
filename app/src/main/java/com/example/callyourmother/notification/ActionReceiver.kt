@@ -10,7 +10,7 @@ class ActionReceiver() : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val number = intent.getStringExtra("userID")
         val callIntent : Intent = Intent(Intent.ACTION_DIAL)
-        callIntent.data = Uri.parse(number)
+        callIntent.data = Uri.parse("tel:" + number)
         callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(callIntent)
     }

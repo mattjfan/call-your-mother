@@ -104,6 +104,7 @@ class Notifications {
 
         val nextCall : Calendar = Calendar.getInstance()
         nextCall.timeInMillis = System.currentTimeMillis()
+        nextCall.add(Calendar.MILLISECOND, 10000)
 
         manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, nextCall.timeInMillis, 10, pendingIntent)
     }
