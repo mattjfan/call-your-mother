@@ -55,7 +55,8 @@ class Notifications {
         intent.putExtra("notificationTitle", title)
         intent.putExtra("userID", userID)
 
-        val pendingIntent : PendingIntent = PendingIntent.getBroadcast(context,0,intent,0)
+        val pendingIntent : PendingIntent = PendingIntent.getBroadcast(context,0,
+                intent,PendingIntent.FLAG_UPDATE_CURRENT)
 
         //Today's date
         val today : Calendar = Calendar.getInstance()
@@ -98,7 +99,8 @@ class Notifications {
         intent.putExtra("notificationTitle", "CAll YOUR MOTHER")
         intent.putExtra("userID", "203-410-9815")
 
-        val pendingIntent : PendingIntent = PendingIntent.getBroadcast(context,0,intent,0)
+        val pendingIntent : PendingIntent = PendingIntent.getBroadcast(context,0,
+                intent,PendingIntent.FLAG_UPDATE_CURRENT)
 
         val nextCall : Calendar = Calendar.getInstance()
         nextCall.timeInMillis = System.currentTimeMillis()
